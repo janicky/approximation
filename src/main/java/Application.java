@@ -12,5 +12,10 @@ public class Application extends JFrame {
         setSize(700, 500);
         setVisible(true);
         setLocationRelativeTo(null);
+        initTable();
+    }
+
+    private void initTable() {
+        table.setModel(new ApproximationTableModel());
     }
 }
