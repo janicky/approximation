@@ -6,6 +6,7 @@ public class Application extends JFrame {
     private JPanel applicationContent;
     private JTable table;
     private JTextField estimation;
+    private JTable tableD;
 
     public Application(String title) throws HeadlessException {
         super(title);
@@ -35,5 +36,16 @@ public class Application extends JFrame {
         table.getColumnModel().getColumn(3).setCellRenderer(new DecimalFormatRenderer());
 
         estimation.setText(Double.toString(Approximation.errorEstimation()));
+
+        ApproximationTableModel tableDModel = new ApproximationTableModel(new String[]{ "x", "y(x)" });
+        tableD.setModel(tableDModel);
+
+        for (int i = 0; i <= Configuration.m; i++) {
+            double x_prec = i / 10d;
+            tableDModel.add(new Object[] { x_prec, Approximation.lambda(0) * Approximation.lambda(1) * x_prec });
+        }
+
+        tableD.getColumnModel().getColumn(1).setCellRenderer(new DecimalFormatRenderer());
+
     }
 }
