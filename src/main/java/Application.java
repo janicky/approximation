@@ -33,5 +33,7 @@ public class Application extends JFrame {
         table.getColumnModel().getColumn(1).setCellRenderer(new DecimalFormatRenderer());
         table.getColumnModel().getColumn(2).setCellRenderer(new DecimalFormatRenderer());
         table.getColumnModel().getColumn(3).setCellRenderer(new DecimalFormatRenderer());
+
+        estimation.setText(Double.toString(Approximation.errorEstimation()));
     }
 }
