@@ -5,6 +5,7 @@ public class Application extends JFrame {
 
     private JPanel applicationContent;
     private JTable table;
+    private JTextField estimation;
 
     public Application(String title) throws HeadlessException {
         super(title);
@@ -13,6 +14,7 @@ public class Application extends JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         initTable();
     }
 
@@ -26,11 +28,10 @@ public class Application extends JFrame {
             double approx = Approximation.approx(tmp_i);
             double e = Math.abs(fn - approx);
             tableModel.add(new Object[] { tmp_i, fn, approx, e });
-            System.out.println(Math.abs(fn - approx));
         }
 
-        //table.getColumnModel().getColumn(1).setCellRenderer(new DecimalFormatRenderer());
-        //table.getColumnModel().getColumn(2).setCellRenderer(new DecimalFormatRenderer());
+        table.getColumnModel().getColumn(1).setCellRenderer(new DecimalFormatRenderer());
+        table.getColumnModel().getColumn(2).setCellRenderer(new DecimalFormatRenderer());
         table.getColumnModel().getColumn(3).setCellRenderer(new DecimalFormatRenderer());
     }
 }

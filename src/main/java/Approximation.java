@@ -12,4 +12,9 @@ public class Approximation {
         return result;
     }
 
+    private static double integralError(double x) {
+        return Math.abs(Configuration.function(x) - approx(x));
+    }
+
+
 }
