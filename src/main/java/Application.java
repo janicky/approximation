@@ -19,7 +19,7 @@ public class Application extends JFrame {
     }
 
     private void initTable() {
-        ApproximationTableModel tableModel = new ApproximationTableModel();
+        ApproximationTableModel tableModel = new ApproximationTableModel(new String[]{ "x", "f(x)", "y(x)", "e (błąd rzeczywisty)" });
         table.setModel(tableModel);
 
         for (int i = (int) Configuration.a * 10; i <= Configuration.b * 10; i++) {

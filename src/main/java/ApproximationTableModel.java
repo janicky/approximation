@@ -4,8 +4,12 @@ import java.util.List;
 
 public class ApproximationTableModel extends AbstractTableModel {
 
-    private String[] columnNames = { "x", "f(x)", "y(x)", "e (błąd rzeczywisty)" };
+    private String[] columnNames;
     private List<Object[]> data = new ArrayList<>();
+
+    public ApproximationTableModel(String[] columnNames) {
+        this.columnNames = columnNames;
+    }
 
     public int getColumnCount() {
         return columnNames.length;
