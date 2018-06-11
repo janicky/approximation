@@ -7,6 +7,7 @@ public class Application extends JFrame {
     private JTable table;
     private JTextField estimation;
     private JTable tableD;
+    private JList lambdas;
 
     public Application(String title) throws HeadlessException {
         super(title);
@@ -47,5 +48,16 @@ public class Application extends JFrame {
 
         tableD.getColumnModel().getColumn(1).setCellRenderer(new DecimalFormatRenderer());
 
+        DefaultListModel<String> lm = new DefaultListModel<>();
+        lambdas.setModel(lm);
+
+        for (int i = 0; i <= Configuration.n; i++) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("λ");
+            sb.append(Integer.toString(i));
+            sb.append(" = ");
+            sb.append(Approximation.lambda(i));
+            lm.addElement(sb.toString());
+        }
     }
 }
